@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <form id="inputForm">
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <input type="number" id="num3">
+
+    <button type="button" onclick="drawChart()">Vẽ biểu đồ</button>
+  </form>
+
+  <canvas id="myChart"></canvas>
+
+  <script>
+    function drawChart() {
+      let num1 = document.getElementById("num1").value;
+      let num2 = document.getElementById("num2").value;
+      let num3 = document.getElementById("num3").value;
+
+      let chartData = {
+        labels: ['Số 1', 'Số 2', 'Số 3'],
+        datasets: [{
+          label: 'Số liệu',
+          data: [num1, num2, num3],
+          backgroundColor: ['red', 'green', 'blue']
+        }]
+      };
+
+      let chartConfig = {
+        type: 'bar',
+        data: chartData,
+        options: {}
+      };
+
+      let myChart = new Chart(document.getElementById('myChart'), chartConfig);
+    }
+  </script>
+</body>
+</html>

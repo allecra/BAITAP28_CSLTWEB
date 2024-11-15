@@ -1,0 +1,50 @@
+<!--Ví dụ 2. Tạo form nhập vào tên và điểm của 3 học sinh, sau đó vẽ biểu đồ radar so sánh điểm.-->
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <form id="inputForm">
+    <input type="text" id="name1">
+    <input type="number" id="point1">
+
+    <input type="text" id="name2">
+    <input type="number" id="point2">
+
+    <input type="text" id="name3">
+    <input type="number" id="point3">
+
+    <button type="button" onclick="drawChart()">Vẽ biểu đồ</button>
+  </form>
+
+  <canvas id="myChart"></canvas>
+
+  <script>
+    function drawChart() {
+      let name1 = document.getElementById("name1").value;
+      let point1 = document.getElementById("point1").value;
+
+      // Lấy giá trị tương tự cho name2, point2, name3, point3
+
+      let chartData = {
+        labels: [name1, name2, name3],
+        datasets: [{
+          label: 'Điểm',
+          data: [point1, point2, point3],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)'
+        }]  
+      };
+
+      let chartConfig = {
+        type: 'radar',
+        data: chartData,
+        options: {}
+      };
+
+      let myChart = new Chart(document.getElementById('myChart'), chartConfig);
+    }
+  </script>
+</body>
+</html>
